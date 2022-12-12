@@ -74,10 +74,5 @@ textarea {
 
 .container {
   display: flex;
-  
-}
-
-.event {
-  border: solid, grey;
-  width: 200px;
+  justify-content:space-between;
 }
