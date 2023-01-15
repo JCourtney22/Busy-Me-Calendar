@@ -20,7 +20,7 @@ textarea {
   border-radius: 0;
   border-bottom: 10px solid black;
 }
-
+/* Where is this in html? */
 .description {
   white-space: pre-wrap;
 }
@@ -29,7 +29,7 @@ textarea {
   text-align: center;
   border-radius: 15px;
 }
-
+/* Where is this in html? */
 .row {
   white-space: pre-wrap;
   height: 80px;
@@ -75,4 +75,8 @@ textarea {
 .container {
   display: flex;
   justify-content:space-between;
+}
+
+textarea {
+  width: 500px;
 }
