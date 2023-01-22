@@ -10,7 +10,6 @@ $(document).ready(function () {
 
     //Save user events to local storage
 
-    var eventText = document.getElementById("#hour-9");
     var saveBtns = document.querySelectorAll("#save");
 
     //Event Listener
