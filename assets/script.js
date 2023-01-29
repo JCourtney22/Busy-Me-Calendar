@@ -5,7 +5,6 @@ $(document).ready(function () {
     var currentDate = moment().format("dddd Do MMMM");
     var displayDate = document.getElementById("currentDay");
     var currentHour = moment().format("HH");
-
     displayDate.textContent = currentDate;
 
     //Save user events to local storage
@@ -26,17 +25,23 @@ $(document).ready(function () {
         button.addEventListener('click', saveNote);
     })
 
+
+
     function displayNotes() {
         for (let index = 9; index <= 17; index++) {
             var storedNote = localStorage.getItem(`hour-${index}`);
 
             if (storedNote) {
-                $(`#hour-${index}`).val(storedNote)
-            }
-            
+                $(`#hour-${index}`).val(storedNote);
+            };
+        }
+        var id = $(this).siblings('.description').attr('id');
+        if ( id < currentHour) {
+            id.addClass('past');
         }
     }
 
     displayNotes();
+
 
 });
