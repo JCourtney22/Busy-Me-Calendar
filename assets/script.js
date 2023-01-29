@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     var saveBtns = document.querySelectorAll("#save");
 
-    //Event Listener
+    //Event Listener for every save button
 
     function saveNote() {
         console.log($(this))
@@ -25,7 +25,7 @@ $(document).ready(function () {
         button.addEventListener('click', saveNote);
     })
 
-
+//Function to go through each of the text boxes, store their notes and then display their notes
 
     function displayNotes() {
         for (let index = 9; index <= 17; index++) {
@@ -35,6 +35,7 @@ $(document).ready(function () {
                 $(`#hour-${index}`).val(storedNote);
             };
         }
+        //If statement to compare current time with timeblock and display css
         var id = $(this).siblings('.description').attr('id');
         if ( id < currentHour) {
             id.addClass('past');
@@ -42,6 +43,4 @@ $(document).ready(function () {
     }
 
     displayNotes();
-
-
 });
