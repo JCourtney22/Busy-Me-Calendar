@@ -12,30 +12,30 @@ $(document).ready(function () {
 
     var saveBtns = document.querySelectorAll("#save");
 
-    //Event Listener for every save button
-
     function saveNote() {
         console.log($(this))
         var noteVal = $(this).siblings('.description').val();
         var id = $(this).siblings('.description').attr('id');
-        
+
         localStorage.setItem(id, noteVal);
     }
-
+    //Event Listener for every save button
     saveBtns.forEach(function (button) {
         button.addEventListener('click', saveNote);
-
+        //Idenitfying the ID of text areas and then idenitfying the 5th character
         var textArea = $(button).siblings('.description');
         var id = textArea.attr('id');
         var hour = id.substring(5);
-        console.log(currentHour, hour);
+        // console.log(currentHour, hour);
+        //Comparing the current hour with the id of the text box
         if (currentHour > hour) {
             textArea.addClass('past');
         } else if (currentHour == hour) {
             textArea.addClass('present');
-        } else if (currentHour < hour){
+        } else if (currentHour < hour) {
             textArea.addClass('future');
         };
+        //Displays stored notes
         var storedNote = localStorage.getItem(id);
         textArea.val(storedNote);
     })
