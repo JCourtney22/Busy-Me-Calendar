@@ -19,6 +19,8 @@ I also learnt that the key value pair can be set as the variables that relate to
 I found that I can use substring to ignore a certain amount of characters in an ID, especially where the IDs are similar. I think this is a useful feature for something like a calendar.
 
 ## Screenshot
+Deployed site: https://jcourtney22.github.io/Busy-Me-Calendar/
+  ![jcourtney22 github io_Busy-Me-Calendar_](https://user-images.githubusercontent.com/115502589/215904365-8587dbe9-6ab0-40af-9f20-6ab1b2e0a40e.png)
 
 
 ## License
