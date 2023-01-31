@@ -4,7 +4,8 @@ $(document).ready(function () {
 
     var currentDate = moment().format("dddd Do MMMM");
     var displayDate = document.getElementById("currentDay");
-    var currentHour = moment().format("HH");
+    var currentHour = moment().hour();
+    console.log(currentHour);
     displayDate.textContent = currentDate;
 
     //Save user events to local storage
@@ -23,24 +24,19 @@ $(document).ready(function () {
 
     saveBtns.forEach(function (button) {
         button.addEventListener('click', saveNote);
+
+        var textArea = $(button).siblings('.description');
+        var id = textArea.attr('id');
+        var hour = id.substring(5);
+        console.log(currentHour, hour);
+        if (currentHour > hour) {
+            textArea.addClass('past');
+        } else if (currentHour == hour) {
+            textArea.addClass('present');
+        } else if (currentHour < hour){
+            textArea.addClass('future');
+        };
+        var storedNote = localStorage.getItem(id);
+        textArea.val(storedNote);
     })
-
-//Function to go through each of the text boxes, store their notes and then display their notes
-
-    function displayNotes() {
-        for (let index = 9; index <= 17; index++) {
-            var storedNote = localStorage.getItem(`hour-${index}`);
-
-            if (storedNote) {
-                $(`#hour-${index}`).val(storedNote);
-            };
-        }
-        //If statement to compare current time with timeblock and display css
-        var id = $(this).siblings('.description').attr('id');
-        if ( id < currentHour) {
-            id.addClass('past');
-        }
-    }
-
-    displayNotes();
 });
